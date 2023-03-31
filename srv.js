@@ -13,7 +13,7 @@ const scoreHandle = function(json, res) {
 }
 
 const server = http.createServer(function (req, res) {
-	if(request.method === 'POST') {
+	if(req.method === 'POST') {
 		var jsonString = '';
 
 		req.on('data', function (data) {
@@ -25,7 +25,6 @@ const server = http.createServer(function (req, res) {
 				scoreHandle(jsonString, res)
 			}	
 		})
-
 	}
 })
 
