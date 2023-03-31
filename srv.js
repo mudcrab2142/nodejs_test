@@ -10,6 +10,7 @@ const leaderboard = db.collection("leaderboard")
 const scoreHandle = function(json, res) {
 	console.log(json)
 	res.writeHead(200, {'Access-Control-Allow-Origin': '*'})
+	res.end()
 }
 
 const server = http.createServer(function (req, res) {
