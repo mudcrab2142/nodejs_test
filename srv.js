@@ -18,18 +18,17 @@ const server = http.createServer(function (req, res) {
 
 		req.on('data', function (data) {
 			jsonString += data;
-		});
+		})
 
 		req.on('end', function () {
 			if(req.url == '/score'){
 				scoreHandle(jsonString, res)
 			}	
-		});
+		})
 
 	}
-};);
-
+})
 
 server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:&{port}`);
+    console.log(`Server is running on http://${host}:${port}`);
 });
