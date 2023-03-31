@@ -1,7 +1,6 @@
 const http = require("http");
 
 const host = '0.0.0.0';
-const port = 1328;
 
 const requestListener = function (req, res) {
 	switch (req.url){
@@ -22,5 +21,5 @@ const requestListener = function (req, res) {
 
 const server = http.createServer(requestListener);
 server.listen(port, host, () => {
-    console.log(`Server is running on http://${host}:${port}`);
+    console.log(`Server is running on http://${host}:8000`);
 });
