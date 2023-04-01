@@ -28,7 +28,7 @@ const leaderboardHandler = function(res) {
 			if (err) {
 				console.log("Error", err);
 			} else {
-				console.log("Success", JSON.stringify(data.Contents.sort(o => o.Key)); // example
+				console.log("Success", JSON.stringify(data.Contents.sort(o => o.Key))); // example
 				res.writeHead(200, {'Access-Control-Allow-Origin': '*'})
 				res.end()
 			}
