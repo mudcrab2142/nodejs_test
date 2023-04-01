@@ -24,7 +24,7 @@ const scoreHandler = async function(json, res) {
 const leaderboardHandler = function(res) {
 	try{
 		console.log(json)
-		s3.listObjects(bucketParams, function(err, data) {
+		s3.listObjects({Bucket: process.env.BUCKET}, function(err, data) {
 			if (err) {
 				console.log("Error", err);
 			} else {
