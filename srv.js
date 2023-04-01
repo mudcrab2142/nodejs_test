@@ -12,7 +12,7 @@ const port = 8080;
 const scoreHandler = async function(json, res) {
 	try{
 		console.log(json)
-		await s3.putObject({Body: json, Bucket: process.env.BUCKET, Key: uuidv4()}).promise()
+		await s3.putObject({Body: json, Bucket: process.env.CYCLIC_BUCKET_NAME, Key: uuidv4()}).promise()
 		res.writeHead(200, {'Access-Control-Allow-Origin': '*'})
 		res.end()
 	} catch {
@@ -23,7 +23,13 @@ const scoreHandler = async function(json, res) {
 
 const leaderboardHandler = function(res) {
 	try{
-		s3.listObjects({Bucket: process.env.BUCKET}, function(err, data) {
+		console.log(process.env.CYCLIC_BUCKET_NAME)
+		
+		var params = {
+			Bucket: process.env.CYCLIC_BUCKET_NAME, 
+			MaxKeys: 2
+		};
+		s3.listObjects(params, function(err, data) {
 			if (err) {
 				console.log("Error", err);
 			} else {
