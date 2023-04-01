@@ -34,7 +34,8 @@ const leaderboardHandler = function(res) {
 			}
 		})
 
-	} catch {
+	} catch (error) {
+		console.log(error)
 		res.writeHead(500, {'Access-Control-Allow-Origin': '*'})
 		res.end()
 	}
