@@ -9,7 +9,7 @@ const {
 const host = '0.0.0.0';
 const port = 8080;
 
-const scoreHandler = function(json, res) {
+const scoreHandler = async function(json, res) {
 	try{
 		console.log(json)
 		await s3.putObject({Body: json, Bucket: process.env.BUCKET, Key: uuidv4()}).promise()
